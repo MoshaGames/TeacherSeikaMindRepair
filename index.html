@@ -1,0 +1,73 @@
+<div role="game-body" data-id="{GAME_ID}">
+	<div id="start-screen">
+
+		<div>
+			<img src="{T_TEMPLATE_PATH}/Play/games/{GAME_ID}/img/game_logo512x512.png" />
+		</div>
+		
+		<span role="start-game" data-id="{GAME_ID}" class="circle-area noAlpha button-bigger " style="animation-delay: 3s; width: 100px; height: 100px; margin: 0 auto; background-color: white;
+    overflow: visible;"><span class="circle-text center noEvents" style="font-size: 1.2em; color: #0AD; top: 34px;">{L_PLAY}!</span></span>
+
+		<span role="game-version" data-id="{GAME_ID}" class="see-profile" style="position: absolute; bottom: 5px; left: 50%; width: 100vw; max-width: 720px; transform: translateX(-50%);"><span class="center noEvents">{L_VER} {GAME_VERSION}</span></span>
+
+	</div>
+
+	<!-- IF S_USER_LOGGED_IN -->
+	<div id="highest-score-build" class="absolute animated fadeIn">
+		<div class="score-group" style="padding-right: 5px;">
+			<span role="highest-score-track" class="highest-score-track" data-total="{HIGHEST_SCORE}">{HIGHEST_SCORE_FORMAT}</span>
+		</div>
+	</div>
+	<!-- ENDIF -->
+
+	<div id="teacher-seika" class="absolute animated fadeInRightBig" style="text-align: center; left: 50%; bottom: 25%;">
+		<nav class="block">
+		<canvas id="obj-TSeika"  role="Object" class="absolute noEvents" style="max-width: 200px; object-fit: contain; background-image: url('{T_RESOURCES_PATH}Object/Teacher_Seika.png'); animation: teacher_seika 2s steps(5,end) alternate forwards infinite; -webkit-filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.25)); height: 200px;" data-encode="1" data-encode-type="2" width="1800" height="200" data-s="{T_RESOURCES_PATH}Object/Teacher_Seika.png"></canvas>
+		</div>
+	</div>
+	
+	<div id="best-scores" class="hide" style="animation-delay: .5s;">
+		<div class="avatar-score comment-avatar {USER_GENDER_CLASS} mine" style="margin-top: 0px; position: fixed; margin-left: 150px; overflow: visible; left: 0px;">
+			<!-- IF S_APP -->
+			<a  id="profile-{USER_ID}" href="{USERNAME_CLEAN}" data-link='{"parent":"profile","param":{"app":1,"username": "{best_scores.PROFILE_USERNAME_CLEAN}"},"mode":"{USERNAME_CLEAN}","trgt":"#content","showHCard":false,"pop":1,"popID":"profile-viewer","hideH":1}'>
+				<img src="{USER_FACEAVATAR}" data-user="{USER_ID}" role="user-avatar" data-type="face">
+				<span class="avatar-score-name">{USERNAME}</span>
+			</a>
+			<!-- ELSE -->
+			<a id="profile-{USER_ID}" href="{USERNAME_CLEAN}" data-link='{"parent":"profile","param":{"username": "{USERNAME_CLEAN}"},"mode":"{USERNAME_CLEAN}","trgt":"#content","showHCard":false}'>
+			<img src="{USER_FACEAVATAR}" data-user="{USER_ID}" role="user-avatar" data-type="face">
+			</a>
+			<!-- ENDIF -->
+			<span class="avatar-current-score" style="font-size: 1.5em">Score: <span role="final-score">0</span></span>
+		</div>
+
+		<nav style="width: {TOTAL_WIDTH}px; position: relative;">
+		<!-- BEGIN best_scores -->
+			<div class="avatar-score comment-avatar {best_scores.PROFILE_GENDER_CLASS}" data-score="{best_scores.PROFILE_SCORE}">
+				<!-- IF S_APP -->
+				<a  id="profile-{best_scores.PROFILE_ID}" href="{best_scores.PROFILE_USERNAME_CLEAN}" data-link='{"parent":"profile","param":{"app":1,"username": "{best_scores.PROFILE_USERNAME_CLEAN}"},"mode":"{best_scores.PROFILE_USERNAME_CLEAN}","trgt":"#content","showHCard":false,"pop":1,"popID":"profile-viewer","hideH":1}'>
+					<img src="{best_scores.PROFILE_FACEAVATAR}" data-user="{best_scores.PROFILE_ID}" role="user-avatar" data-type="face">
+					<span class="avatar-score-name">{best_scores.PROFILE_USERNAME}</span>
+				</a>
+				<!-- ELSE -->
+				<a id="profile-{best_scores.PROFILE_ID}" href="{best_scores.PROFILE_USERNAME_CLEAN}" data-link='{"parent":"profile","param":{"username": "{best_scores.PROFILE_USERNAME_CLEAN}"},"mode":"{best_scores.PROFILE_USERNAME_CLEAN}","trgt":"#content","showHCard":false}'>
+				<img src="{best_scores.PROFILE_FACEAVATAR}" data-user="{best_scores.PROFILE_ID}" role="user-avatar" data-type="face">
+				</a>
+				<!-- ENDIF -->
+				<span class="avatar-current-score">Score: {best_scores.PROFILE_SCORE}</span>
+			</div>
+		<!-- END best_scores -->
+		</nav>
+
+	</div>
+
+	<!-- label id="player-{PLAYER_ID}" data-id="{PLAYER_ID}" role="player" data-type="player" data-stage="0" class="avatar-wrapper {PLAYER_GENDER_CLASS} hide" style="left: 50%;transform: translateX(-50%);margin-left: -100px !important;">
+		<nav>
+			<i class="avatar-head" role="npc-body" data-html2canvas-ignore="true" data-trgt="true"></i>
+			<i class="avatar-mask"></i>
+			<i class="avatar-body" style="background-image: url('{PLAYER_SPRITE}'); background-position: {PLAYER_POSITION}; background-size: 1200px 510px;"></i>
+		</nav>
+		<i class="avatar-name" role="avatar-name">{PLAYER_USERNAME}</i>
+	</label-->
+
+</div>
